@@ -1,0 +1,88 @@
+body {
+    background-color: #a1dbc7;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    opacity: 1;
+    margin: 90;
+}
+
+h1 {
+    color: #b0c2eb;
+}
+
+h2 {
+    text-align: center;
+    color: #d9a6ca;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+.cupcake-menu {
+    flex: 2;
+}
+
+.cupcake {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+
+.cupcake img {
+    max-width: 100%;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.order-summary {
+    flex: 1;
+    background-color: #93c5e6;
+    padding: 20px;
+    opacity: 0 ;
+}
+
+#order-list {
+    list-style: none;
+    padding: 0;
+}
+
+#total-price {
+    font-weight: bold;
+}
+
+#checkout-button {
+    background-color: #a1dbc7;
+    color: #d9a6ca;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#remove-item-button {
+    background-color: #a1dbc7;
+    color: #d9a6ca;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#checkout-button:hover {
+    background-color: #b4eb99;
+}

@@ -1,0 +1,18 @@
+body {
+    background-color: #ebbfde;
+    font-family: Arial, sans-serif;
+    color: #93c5e6;
+}
+
+header {
+    text-align: center;
+    margin: auto;
+}
+
+div {
+    text-align: center;
+}
+
+section {
+    background-color: #fef7ee;
+}

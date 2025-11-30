@@ -1,0 +1,732 @@
+
+{
+  "project_info": {
+    "name": "Cake & Cia - Sistema de Delivery de Cupcakes",
+    "student": "Edson Galdino Silva",
+    "rgm": "24972762",
+    "original_framework": "Flask (Python)",
+    "target_framework": "Next.js + PostgreSQL",
+    "analysis_date": "2025-10-11",
+    "project_type": "E-commerce / Food Delivery"
+  },
+  "file_structure": {
+    "total_files": 39,
+    "html_files": 7,
+    "css_files": 5,
+    "js_files": 1,
+    "python_files": 1,
+    "images": 23,
+    "documents": 2,
+    "directories": [
+      "css/",
+      "js/",
+      "images/"
+    ]
+  },
+  "pages": [
+    {
+      "file": "index.html",
+      "name": "Catálogo de Produtos",
+      "route": "/",
+      "description": "Página principal com listagem de cupcakes e carrinho",
+      "features": [
+        "Catálogo de 5 cupcakes",
+        "Seleção de quantidade",
+        "Carrinho lateral",
+        "Cálculo de total",
+        "Botão finalizar pedido"
+      ]
+    },
+    {
+      "file": "login.html",
+      "name": "Login de Clientes",
+      "route": "/login",
+      "description": "Autenticação de usuários clientes",
+      "credentials_test": {
+        "username": "admin",
+        "password": "admin"
+      }
+    },
+    {
+      "file": "login-funcionario.html",
+      "name": "Login de Funcionários",
+      "route": "/employee-login",
+      "description": "Autenticação de funcionários",
+      "credentials_test": {
+        "username": "user",
+        "password": "password"
+      }
+    },
+    {
+      "file": "cadastro.html",
+      "name": "Cadastro de Usuários",
+      "route": "/register",
+      "description": "Formulário completo de registro",
+      "fields": [
+        "full_name",
+        "email",
+        "username",
+        "password",
+        "confirm_password",
+        "birth_date",
+        "cpf",
+        "address",
+        "number",
+        "neighborhood",
+        "complement",
+        "city",
+        "state",
+        "zipcode",
+        "phone"
+      ]
+    },
+    {
+      "file": "pagamento.html",
+      "name": "Seleção de Pagamento",
+      "route": "/checkout/payment",
+      "description": "Escolha de método de pagamento",
+      "payment_methods": [
+        "money",
+        "credit-card",
+        "pix"
+      ]
+    },
+    {
+      "file": "pedido-concluido.html",
+      "name": "Confirmação de Pedido",
+      "route": "/order-confirmation",
+      "description": "Tela de sucesso após finalização"
+    },
+    {
+      "file": "recebimento-pedido.html",
+      "name": "Detalhes do Pedido (Funcionários)",
+      "route": "/dashboard/orders",
+      "description": "Visualização de pedido para equipe",
+      "displays": [
+        "customer_name",
+        "delivery_address",
+        "order_items"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Cupcake de Morango",
+      "description": "Este cupcake é uma explosão de sabor refrescante de morangos maduros. A base do bolo é macia e úmida, e o recheio é feito com um delicioso purê de morango, que adiciona um toque doce e frutado. A cobertura é decorada com um delicado glacê de morango e é coroada com um morango fresco, proporcionando um contraste agridoce que vai fazer sua boca se encher de água.",
+      "price": 8.99,
+      "currency": "BRL",
+      "image": "04.jpg",
+      "category": "cupcakes",
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Cupcake de Chocolate",
+      "description": "O cupcake de chocolate é uma escolha clássica para os amantes de chocolate. A base do bolo é rica e intensa, com um sabor profundo de cacau. No topo, você encontrará uma generosa camada de ganache de chocolate que derrete na boca, e para finalizar, lascas de chocolate ou confeitos podem ser adicionados para dar um toque extra de textura e sabor.",
+      "price": 8.99,
+      "currency": "BRL",
+      "image": "03.jpg",
+      "category": "cupcakes",
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Cupcake de Baunilha",
+      "description": "Um cupcake de baunilha é uma opção elegante e simples. A base do bolo é leve e macia, com uma nota suave de baunilha. A cobertura é feita com um cremoso glacê de baunilha que é delicadamente decorado com confeitos coloridos, tornando-o perfeito para qualquer ocasião.",
+      "price": 7.99,
+      "currency": "BRL",
+      "image": "11.jpg",
+      "category": "cupcakes",
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "Cupcake de Caramelo",
+      "description": "O cupcake de caramelo é uma indulgência doce e reconfortante. A base do bolo tem um sabor de caramelo suave, e é recheado com um creme de caramelo pegajoso que flui no centro quando você o morde. A cobertura é generosamente coberta com um glacê de caramelo cremoso e pode ser decorada com flocos de sal marinho para um contraste saboroso.",
+      "price": 7.99,
+      "currency": "BRL",
+      "image": "15.jpg",
+      "category": "cupcakes",
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "Cupcake de Doce de Leite",
+      "description": "Este cupcake é uma celebração do doce de leite, com uma base de bolo que possui um toque de doçura característico. O recheio é uma camada de doce de leite cremoso que adiciona uma textura rica e um sabor irresistível. A cobertura é coberta com mais doce de leite e pode ser decorada com um toque de canela em pó para realçar os sabores.",
+      "price": 7.99,
+      "currency": "BRL",
+      "image": "16.jpg",
+      "category": "cupcakes",
+      "available": true
+    }
+  ],
+  "database_schema": {
+    "current_status": "NOT_FOUND",
+    "database_file": "database.db",
+    "schema_file": "schema.sql",
+    "note": "Neither database nor schema file exists in the project",
+    "proposed_tables": {
+      "users": {
+        "description": "Customer accounts",
+        "columns": [
+          {"name": "id", "type": "SERIAL PRIMARY KEY"},
+          {"name": "username", "type": "VARCHAR(50) UNIQUE NOT NULL"},
+          {"name": "email", "type": "VARCHAR(100) UNIQUE NOT NULL"},
+          {"name": "password_hash", "type": "VARCHAR(255) NOT NULL"},
+          {"name": "full_name", "type": "VARCHAR(100) NOT NULL"},
+          {"name": "birth_date", "type": "DATE"},
+          {"name": "cpf", "type": "VARCHAR(14) UNIQUE"},
+          {"name": "phone", "type": "VARCHAR(20)"},
+          {"name": "created_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"},
+          {"name": "updated_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"}
+        ],
+        "indexes": ["username", "email", "cpf"]
+      },
+      "addresses": {
+        "description": "User delivery addresses",
+        "columns": [
+          {"name": "id", "type": "SERIAL PRIMARY KEY"},
+          {"name": "user_id", "type": "INTEGER REFERENCES users(id) ON DELETE CASCADE"},
+          {"name": "street", "type": "VARCHAR(200) NOT NULL"},
+          {"name": "number", "type": "VARCHAR(10) NOT NULL"},
+          {"name": "neighborhood", "type": "VARCHAR(100) NOT NULL"},
+          {"name": "complement", "type": "VARCHAR(100)"},
+          {"name": "city", "type": "VARCHAR(100) NOT NULL"},
+          {"name": "state", "type": "VARCHAR(2) NOT NULL"},
+          {"name": "zipcode", "type": "VARCHAR(9) NOT NULL"},
+          {"name": "is_default", "type": "BOOLEAN DEFAULT FALSE"},
+          {"name": "created_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"}
+        ],
+        "indexes": ["user_id"]
+      },
+      "products": {
+        "description": "Cupcakes and products catalog",
+        "columns": [
+          {"name": "id", "type": "SERIAL PRIMARY KEY"},
+          {"name": "name", "type": "VARCHAR(100) NOT NULL"},
+          {"name": "description", "type": "TEXT"},
+          {"name": "price", "type": "DECIMAL(10,2) NOT NULL"},
+          {"name": "image_url", "type": "VARCHAR(255)"},
+          {"name": "category", "type": "VARCHAR(50)"},
+          {"name": "stock_quantity", "type": "INTEGER DEFAULT 0"},
+          {"name": "is_available", "type": "BOOLEAN DEFAULT TRUE"},
+          {"name": "created_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"},
+          {"name": "updated_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"}
+        ],
+        "indexes": ["category", "is_available"]
+      },
+      "orders": {
+        "description": "Customer orders",
+        "columns": [
+          {"name": "id", "type": "SERIAL PRIMARY KEY"},
+          {"name": "user_id", "type": "INTEGER REFERENCES users(id)"},
+          {"name": "address_id", "type": "INTEGER REFERENCES addresses(id)"},
+          {"name": "total_amount", "type": "DECIMAL(10,2) NOT NULL"},
+          {"name": "payment_method", "type": "VARCHAR(20) NOT NULL"},
+          {"name": "payment_status", "type": "VARCHAR(20) DEFAULT 'pending'"},
+          {"name": "order_status", "type": "VARCHAR(20) DEFAULT 'pending'"},
+          {"name": "notes", "type": "TEXT"},
+          {"name": "created_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"},
+          {"name": "updated_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"},
+          {"name": "delivered_at", "type": "TIMESTAMP"}
+        ],
+        "indexes": ["user_id", "order_status", "created_at"]
+      },
+      "order_items": {
+        "description": "Items in each order",
+        "columns": [
+          {"name": "id", "type": "SERIAL PRIMARY KEY"},
+          {"name": "order_id", "type": "INTEGER REFERENCES orders(id) ON DELETE CASCADE"},
+          {"name": "product_id", "type": "INTEGER REFERENCES products(id)"},
+          {"name": "quantity", "type": "INTEGER NOT NULL"},
+          {"name": "unit_price", "type": "DECIMAL(10,2) NOT NULL"},
+          {"name": "subtotal", "type": "DECIMAL(10,2) NOT NULL"}
+        ],
+        "indexes": ["order_id", "product_id"]
+      },
+      "employees": {
+        "description": "Staff accounts",
+        "columns": [
+          {"name": "id", "type": "SERIAL PRIMARY KEY"},
+          {"name": "username", "type": "VARCHAR(50) UNIQUE NOT NULL"},
+          {"name": "password_hash", "type": "VARCHAR(255) NOT NULL"},
+          {"name": "full_name", "type": "VARCHAR(100) NOT NULL"},
+          {"name": "role", "type": "VARCHAR(50) NOT NULL"},
+          {"name": "is_active", "type": "BOOLEAN DEFAULT TRUE"},
+          {"name": "created_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"}
+        ],
+        "indexes": ["username", "role"]
+      },
+      "payments": {
+        "description": "Payment transactions",
+        "columns": [
+          {"name": "id", "type": "SERIAL PRIMARY KEY"},
+          {"name": "order_id", "type": "INTEGER REFERENCES orders(id)"},
+          {"name": "payment_method", "type": "VARCHAR(20) NOT NULL"},
+          {"name": "amount", "type": "DECIMAL(10,2) NOT NULL"},
+          {"name": "status", "type": "VARCHAR(20) DEFAULT 'pending'"},
+          {"name": "transaction_id", "type": "VARCHAR(100)"},
+          {"name": "paid_at", "type": "TIMESTAMP"},
+          {"name": "created_at", "type": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"}
+        ],
+        "indexes": ["order_id", "status", "transaction_id"]
+      }
+    }
+  },
+  "flask_api": {
+    "base_url": "/",
+    "routes": [
+      {
+        "method": "POST",
+        "path": "/register",
+        "description": "Register new user",
+        "request_body": {
+          "username": "string",
+          "email": "string",
+          "password": "string"
+        },
+        "response": {
+          "success": {"status": 201, "body": {"message": "Usuário registrado com sucesso!"}},
+          "error": {"status": 400, "body": {"error": "error message"}}
+        },
+        "implemented": true,
+        "connected_to_frontend": false
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "description": "User authentication",
+        "request_body": {
+          "username": "string",
+          "password": "string"
+        },
+        "response": {
+          "success": {"status": 200, "body": {"message": "Login bem-sucedido!"}},
+          "error": {"status": 401, "body": {"error": "Credenciais inválidas"}}
+        },
+        "implemented": true,
+        "connected_to_frontend": false
+      }
+    ],
+    "security": {
+      "password_hashing": "PBKDF2-HMAC-SHA512",
+      "salt": "SHA-256 with 60 random bytes",
+      "iterations": 100000,
+      "secret_key": "INSECURE - hardcoded 'your_secret_key'"
+    }
+  },
+  "design_system": {
+    "color_palette": {
+      "primary": "#a1dbc7",
+      "secondary": "#b4eb99",
+      "accent1": "#b0c2eb",
+      "accent2": "#d9a6ca",
+      "accent3": "#eb6890",
+      "accent4": "#bb6cf0",
+      "background1": "#ebbfde",
+      "background2": "#93c5e6",
+      "background3": "#fef7ee",
+      "text_primary": "#a4a0da",
+      "colors_list": [
+        {"name": "Mint Green", "hex": "#a1dbc7", "usage": "Main background, buttons"},
+        {"name": "Light Green", "hex": "#b4eb99", "usage": "Buttons, hover"},
+        {"name": "Pastel Blue", "hex": "#b0c2eb", "usage": "Titles, forms"},
+        {"name": "Pink", "hex": "#d9a6ca", "usage": "Subtitles"},
+        {"name": "Dark Pink", "hex": "#eb6890", "usage": "Highlights"},
+        {"name": "Purple", "hex": "#bb6cf0", "usage": "Button text"},
+        {"name": "Baby Pink", "hex": "#ebbfde", "usage": "Login background"},
+        {"name": "Light Blue", "hex": "#93c5e6", "usage": "Order summary"},
+        {"name": "Beige", "hex": "#fef7ee", "usage": "Section backgrounds"},
+        {"name": "Lilac", "hex": "#a4a0da", "usage": "Confirmation texts"}
+      ]
+    },
+    "typography": {
+      "font_family": "Arial, sans-serif",
+      "sizes": {
+        "h1": "default",
+        "h2_large": "60px",
+        "h2_medium": "30px",
+        "h3": "default",
+        "paragraph": "16px",
+        "paragraph_large": "35px",
+        "button": "16px-18px"
+      }
+    },
+    "layout": {
+      "responsive_breakpoint": "800px",
+      "layout_system": "Flexbox",
+      "grid_system": "None (custom flexbox)"
+    }
+  },
+  "assets": {
+    "images": {
+      "total": 23,
+      "total_size_mb": 13,
+      "logo": {
+        "primary": {"file": "logo.png", "size": "668x197", "size_kb": 18},
+        "alternative": {"file": "14.png", "size": "286x63", "size_kb": 11}
+      },
+      "products": [
+        {"file": "03.jpg", "product": "Chocolate", "size_mb": 1.1},
+        {"file": "04.jpg", "product": "Morango", "size_mb": 1.4},
+        {"file": "11.jpg", "product": "Baunilha", "size_mb": 0.68},
+        {"file": "15.jpg", "product": "Caramelo", "size_mb": 4.8, "needs_optimization": true},
+        {"file": "16.jpg", "product": "Doce de Leite", "size_mb": 0.17}
+      ],
+      "unused_images": [
+        "01.png", "02.png", "05.jpg", "06.jpg", "07.jpg", 
+        "08.jpg", "09.jpg", "10.jpg", "12.jpg", "13.jpg",
+        "17.jpg", "18.jpg", "19.jpg", "20.jpg", "21.jpg"
+      ],
+      "resources": [
+        {"file": "qrcode.png", "usage": "PIX payment", "size": "110x110"}
+      ],
+      "documentation": [
+        {"file": "der.jpg", "description": "Entity-Relationship Diagram", "size": "1290x775"}
+      ]
+    }
+  },
+  "javascript_functionality": {
+    "file": "script.js",
+    "features": [
+      "Product array with 5 cupcakes",
+      "DOM event listeners",
+      "Add to cart functionality",
+      "Cart total calculation",
+      "Checkout button (redirects to login)"
+    ],
+    "limitations": [
+      "Does not use quantity input values",
+      "No cart persistence (localStorage)",
+      "Cannot remove individual items",
+      "No stock control",
+      "No cart update functionality"
+    ]
+  },
+  "payment_methods": [
+    {
+      "id": 1,
+      "name": "Dinheiro",
+      "code": "money",
+      "description": "Pagamento na entrega",
+      "requires_form": false,
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "name": "Cartão de Crédito",
+      "code": "credit-card",
+      "description": "Pagamento online com cartão",
+      "requires_form": true,
+      "form_fields": ["card_number", "card_holder", "expiration_date", "cvv"],
+      "enabled": true,
+      "integration": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 3,
+      "name": "PIX",
+      "code": "pix",
+      "description": "Pagamento via QR Code PIX",
+      "requires_form": false,
+      "shows_qrcode": true,
+      "enabled": true,
+      "integration": "NOT_IMPLEMENTED"
+    }
+  ],
+  "test_users": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "role": "customer",
+      "full_name": "Administrador Teste",
+      "notes": "Hardcoded in login.html"
+    },
+    {
+      "username": "user",
+      "password": "password",
+      "role": "employee",
+      "full_name": "Funcionário Teste",
+      "notes": "Hardcoded in login-funcionario.html"
+    },
+    {
+      "username": "joao_silva",
+      "full_name": "João da Silva",
+      "address": "Rua da Amostra, 123, Cidade Exemplo",
+      "role": "customer",
+      "notes": "Hardcoded in recebimento-pedido.html"
+    }
+  ],
+  "user_stories": [
+    {
+      "id": 1,
+      "story": "Como usuário, quero ser capaz de fazer login no sistema para acessar meus dados pessoais.",
+      "points": 5,
+      "priority": "Alta",
+      "status": "PARTIALLY_IMPLEMENTED"
+    },
+    {
+      "id": 2,
+      "story": "Como administrador, quero poder adicionar novos produtos ao catálogo.",
+      "points": 3,
+      "priority": "Média",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 3,
+      "story": "Como usuário, quero poder filtrar os resultados de busca por categoria.",
+      "points": 2,
+      "priority": "Alta",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 4,
+      "story": "Como usuário, quero receber notificações por e-mail quando houver atualizações em meus pedidos.",
+      "points": 8,
+      "priority": "Alta",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 5,
+      "story": "Como usuário, quero poder adicionar itens ao meu carrinho de compras e finalizar a compra.",
+      "points": 5,
+      "priority": "Alta",
+      "status": "PARTIALLY_IMPLEMENTED"
+    },
+    {
+      "id": 7,
+      "story": "Como usuário, desejo poder adicionar produtos à minha lista de desejos para compra futura.",
+      "points": 4,
+      "priority": "Baixa",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 8,
+      "story": "Como usuário, quero poder realizar o pagamento dos meus pedidos utilizando diferentes métodos de pagamento.",
+      "points": 8,
+      "priority": "Alta",
+      "status": "SIMULATED"
+    }
+  ],
+  "issues": {
+    "critical": [
+      {
+        "severity": "CRITICAL",
+        "title": "Database does not exist",
+        "description": "No database.db or schema.sql file found. Backend cannot function.",
+        "impact": "Backend is non-functional"
+      },
+      {
+        "severity": "CRITICAL",
+        "title": "Hardcoded credentials in JavaScript",
+        "description": "Login credentials are hardcoded in frontend JavaScript files.",
+        "impact": "Major security vulnerability"
+      },
+      {
+        "severity": "CRITICAL",
+        "title": "Exposed secret key",
+        "description": "Secret key is 'your_secret_key' in source code.",
+        "impact": "Security breach"
+      },
+      {
+        "severity": "CRITICAL",
+        "title": "Insecure cookie storage",
+        "description": "User data stored in cookies without encryption.",
+        "impact": "Data exposure risk"
+      },
+      {
+        "severity": "CRITICAL",
+        "title": "No CSRF protection",
+        "description": "API endpoints lack CSRF tokens.",
+        "impact": "Vulnerable to CSRF attacks"
+      }
+    ],
+    "important": [
+      {
+        "severity": "HIGH",
+        "title": "Frontend-backend disconnection",
+        "description": "HTML forms do not call Flask API endpoints.",
+        "impact": "System is non-functional"
+      },
+      {
+        "severity": "HIGH",
+        "title": "No input validation",
+        "description": "Forms lack client-side and server-side validation.",
+        "impact": "Poor UX and security"
+      },
+      {
+        "severity": "HIGH",
+        "title": "No error handling",
+        "description": "No user feedback for errors.",
+        "impact": "Poor user experience"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Large image files",
+        "description": "Some product images are 5MB+, impacting load times.",
+        "impact": "Performance issues"
+      },
+      {
+        "severity": "HIGH",
+        "title": "Limited responsiveness",
+        "description": "Basic CSS with minimal mobile optimization.",
+        "impact": "Poor mobile experience"
+      }
+    ],
+    "improvements": [
+      {
+        "severity": "MEDIUM",
+        "title": "No inventory control",
+        "description": "Products always show as available.",
+        "impact": "Cannot manage stock"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Cart does not persist",
+        "description": "Cart is lost on page reload.",
+        "impact": "Poor user experience"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "No order history",
+        "description": "Customers cannot view past orders.",
+        "impact": "Missing core feature"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "Limited admin panel",
+        "description": "Employees have minimal dashboard functionality.",
+        "impact": "Difficult to manage orders"
+      },
+      {
+        "severity": "LOW",
+        "title": "No automated tests",
+        "description": "No unit, integration, or e2e tests.",
+        "impact": "Difficult to maintain quality"
+      }
+    ]
+  },
+  "migration_recommendations": {
+    "tech_stack": {
+      "framework": "Next.js 14+ (App Router)",
+      "database": "PostgreSQL 15+",
+      "orm": "Prisma",
+      "authentication": "NextAuth.js v5",
+      "ui_library": "Tailwind CSS + shadcn/ui",
+      "validation": "Zod",
+      "payments": {
+        "credit_card": "Stripe",
+        "pix": "PIX API (e.g., Asaas, PagSeguro)"
+      },
+      "image_hosting": "Cloudinary or AWS S3",
+      "email": "Resend or SendGrid",
+      "deployment": {
+        "frontend": "Vercel",
+        "database": "Supabase or Neon"
+      }
+    },
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Setup and Infrastructure",
+        "tasks": [
+          "Create Next.js project",
+          "Configure PostgreSQL",
+          "Setup Prisma",
+          "Optimize and migrate images",
+          "Setup environment variables"
+        ],
+        "estimated_hours": 8
+      },
+      {
+        "phase": 2,
+        "name": "Authentication",
+        "tasks": [
+          "Implement NextAuth.js",
+          "Create login/register pages",
+          "Separate customer/employee roles",
+          "Secure session management"
+        ],
+        "estimated_hours": 12
+      },
+      {
+        "phase": 3,
+        "name": "Product Catalog",
+        "tasks": [
+          "Create product listing page",
+          "Migrate 5 cupcakes data",
+          "Implement shopping cart",
+          "Add product details view"
+        ],
+        "estimated_hours": 10
+      },
+      {
+        "phase": 4,
+        "name": "Checkout and Payments",
+        "tasks": [
+          "Build checkout form",
+          "Integrate Stripe",
+          "Implement PIX payments",
+          "Create order confirmation page"
+        ],
+        "estimated_hours": 16
+      },
+      {
+        "phase": 5,
+        "name": "Dashboard",
+        "tasks": [
+          "Customer order history",
+          "Employee order management",
+          "Basic reports",
+          "Order status tracking"
+        ],
+        "estimated_hours": 14
+      },
+      {
+        "phase": 6,
+        "name": "Polish and Testing",
+        "tasks": [
+          "Write automated tests",
+          "Performance optimization",
+          "SEO improvements",
+          "Deploy to production"
+        ],
+        "estimated_hours": 20
+      }
+    ],
+    "total_estimated_hours": "40-80 hours",
+    "complexity": "Medium-High"
+  },
+  "next_steps": [
+    "Review this analysis with stakeholders",
+    "Approve migration plan and budget",
+    "Setup development environment",
+    "Begin Phase 1: Infrastructure setup",
+    "Create Prisma schema based on proposed database structure",
+    "Optimize and upload images to CDN",
+    "Implement authentication first (critical path)",
+    "Build features iteratively following phases",
+    "Deploy staging environment for testing",
+    "Final production deployment"
+  ],
+  "files_to_preserve": [
+    "images/logo.png",
+    "images/14.png",
+    "images/03.jpg",
+    "images/04.jpg",
+    "images/11.jpg",
+    "images/15.jpg (optimize first)",
+    "images/16.jpg",
+    "images/qrcode.png",
+    "der.jpg (for reference)",
+    "PIC_atividade_engenharia_software_I.docx 2.docx (documentation)"
+  ],
+  "metadata": {
+    "analysis_version": "1.0",
+    "analyzed_by": "DeepAgent (Abacus.AI)",
+    "analysis_date": "2025-10-11",
+    "original_project_path": "/home/ubuntu/flask_project_analysis/edson/",
+    "documentation_path": "/home/ubuntu/flask_project_analysis/",
+    "total_analysis_time_minutes": 45
+  }
+}
